@@ -6,9 +6,11 @@ height: 67px;
   overflow-x: auto;
   width: 100%;
   max-width: 100%;
-  margin-right: 0;
+  
 }
-
+ol{
+    padding-left: 10px;
+}
 table {
   width: 100%;
   max-width: 100%;
@@ -19,8 +21,8 @@ td {
   padding: 1rem;
   
 }
-@media (min-width: 401px) {
+@media (min-width: 379px) {
   .margin-top {
-    margin-top: 80px;
+    margin-top: 98px;
   }
 }
