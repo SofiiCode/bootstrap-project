@@ -1,8 +1,26 @@
 .card-header{
 height: 67px;
 }
+ .wrap {
+  position: relative;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  margin-right: 0;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 1rem;
+  
+}
 @media (min-width: 401px) {
-  .card {
+  .margin-top {
     margin-top: 80px;
   }
 }

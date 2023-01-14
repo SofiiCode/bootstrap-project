@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" crossorigin="anonymous">
   <link href="/public/css/general.css" rel="stylesheet">
 
-  
+  <link href="./general.css" rel="stylesheet">
   
   
 </head>
@@ -52,17 +52,18 @@
   </div>
 </nav>
   </div>
-  <main class="container-fluid">
+  <div class="container-fluid">
     <!-- <div class="bd-light p-1 rounded"></div> -->
-    <div class=" p-3 mb-5 bg-body rounded container-fluid pt-5 mt-5">
+    <div class=" mb-5 bg-body rounded container-fluid pt-5 mt-5">
       <!-- <div class="row">
         <div class="col"> -->
+        <div class="row">
           <div class=" pb-1 justify-content-center ">
             <div class="col-md-8 ">
               <div class="github-card" data-github="cruftyoldsysadmin" width="" data-height="" data-theme="default"> </div>
               <div class="github-card" data-user="cruftyoldsysadmin" data-repo="dev-profile" width="" data-height="" data-theme="default"> </div>
               <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-              <div class="row py-3 ps-3 ">
+              <div class="row py-3 ms-md-3 ">
                 <ul class="list-group list-group-horizontal">
                   
                   <li class="list-group-item"><a href="https://twitter.com/nomadopsio"><i class="bi bi-twitter" style="font-size: 0.8rem"></i></a></li>
@@ -88,10 +89,10 @@
                   
                 </ul>
               </div>
-              <div class="row ps-3 ">
+              <div class="row wrap card ms-md-3 ">
                 <table class="table">
                   <thead>
-                    <tr>
+                    <tr class="card-header">
                       <th scope="col">Name</th>
                       <th scope="col">Expiration</th>
                       <th scope="col">URL</th>
@@ -108,16 +109,17 @@
                   </tbody>
                 </table>
               </div>
-              <div class="row ps-3 py-3">
-                <hr>
+              <div class="row  m-3 py-3">
+                
                 <h3>GitHub repositories</h3>
                 
                 <a href="https://github.com/nomadops/driftctl-slack">nomadops/driftctl-slack</a>
                 <span> Terraform module to provision driftctl.</span>
-                <hr>
                 
               </div>
+              <hr/>
             </div>
+           
             <!-- <div class="col-md-1">
               <div class="vr" style="height: 100%"></div>
             </div> -->
@@ -128,10 +130,10 @@
             <!-- <div class="col-md-1">
               <div class="vr" style="height: 100%"></div>
             </div> -->
-            <div class="col-md-8 ps-3">
+            <div class=" card col-md-8 ms-3">
               <table class="table">
                 <thead>
-                  <tr>
+                  <tr class="card-header">
                     <th scope="col">Skill</th>
                     <th scope="col">Experience level</th>
                   </tr>
@@ -187,10 +189,11 @@
               </table>
             </div>
           </div>
+        </div>
         <!-- </div>
       </div> -->
     </div>
-  </main>
+  </div>
 </body>
 
 </html>
