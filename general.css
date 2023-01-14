@@ -1,3 +1,25 @@
+.btn-bd-primary {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: #{238636};
+  --bs-btn-border-color: #{238636};
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #{shade-color(238636, 10%)};
+  --bs-btn-hover-border-color: #{shade-color(238636, 10%)};
+  --bs-btn-focus-shadow-rgb: #{238636};
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #{shade-color(238636, 20%)};
+  --bs-btn-active-border-color: #{shade-color(238636, 20%)};
+}
+
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
 .card-header{
 height: 67px;
 }
