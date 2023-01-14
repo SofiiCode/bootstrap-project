@@ -48,7 +48,9 @@ td {
   .sidebar{
     display: none!important;
   }
- 
+ .margin-top {
+    margin-top: 98px;
+  }
 }
 @media (min-width: 379px) {
   .margin-top {
