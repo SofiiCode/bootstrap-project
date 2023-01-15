@@ -48,11 +48,30 @@ td {
 @media (max-width: 479px) {
   .sidebar{
     display: none!important;
+    
+  }
+  .git-card {
+    width:100%;
+  }
+  .git-wrapper{
+    width: 100%;
+    margin: 0 auto;
   }
  .margin-top {
     margin-top: 98px;
   }
 }
+@media (max-width: 979px) {
+  .git-card {
+    width:100%;
+  }
+  .git-wrapper{
+    width: 65%;
+    margin: 0 auto;
+  }
+}
+
+
 @media (min-width: 379px) {
   .margin-top {
     margin-top: 98px;
