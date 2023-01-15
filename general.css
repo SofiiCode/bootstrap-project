@@ -23,7 +23,9 @@
 
 .card-header{
 height: 67px;
+
 }
+
  .wrap {
   position: relative;
   overflow-x: auto;
@@ -70,7 +72,11 @@ td {
     margin: 0 auto;
   }
 }
-
+@media (min-width: 979px) {
+  .description{
+    max-height: 50%;
+  }
+}
 
 @media (min-width: 379px) {
   .margin-top {
