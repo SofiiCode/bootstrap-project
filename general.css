@@ -23,7 +23,6 @@ td {
   --bs-btn-active-bg: #{shade-color(238636, 20%)};
   --bs-btn-active-border-color: #{shade-color(238636, 20%)};
 }
-
 .b-example-divider {
   height: 3rem;
   background-color: rgba(0, 0, 0, .1);
@@ -46,7 +45,6 @@ height: 67px;
 }
 .github-card a{
 text-decoration: none;
-
 }
 .name-link,.repo-name-link{
   color: black;
@@ -69,23 +67,26 @@ color: #707070;
 .status a:hover{
 color: #4183c4;
 }
-.description a{
+.git-description a{
   color: #4183c4;
 }
-.description a:hover{
+.git-description a:hover{
   text-decoration: underline;
 }
 .footer a:hover{
 text-decoration: underline;
 }
-.description,.footer{
+.git-description,.footer{
   color: #707070;
   font-size: 12px;
 }
 .btn-follow{
   height: 40px;
 }
-
+.expiration-card{
+  padding-left: 12px;
+  padding-right: 12px;
+}
 @media (max-width: 479px) {
   .sidebar{
     display: none!important;
@@ -94,13 +95,12 @@ text-decoration: underline;
     margin-top: 98px;
   }
   .btn-follow{
-margin: 0 auto;
+    margin: 0 auto;
   }
   .user-name{
     margin: 0 auto;
   }
 }
-
 @media (min-width: 979px) {
   .description{
     max-height: 50%;
