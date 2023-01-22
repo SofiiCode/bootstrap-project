@@ -18,7 +18,7 @@
 
   <link href="./general.css" rel="stylesheet">
   
-  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body data-theme="default" data-layout="fluid"  >
@@ -55,32 +55,33 @@
     <main class="  mb-5 bd-light rounded pt-5 mt-5">
         <div class="row">
           <div class=" pb-1 row">
+            
             <div class="ms-3 d-flex justify-content-evenly flex-wrap">
               <div class="github-card card user-card p-2 mb-3 ">
                 <div class="header d-flex flex-wrap justify-content-between">
-                  <img src="./screenshot.png" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
+                  <img src="./screenshot.png" id="icon" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
                     <div class="user-name m-2">
-                      <h5 class="card-title "><a href="#" class="name-link">Michael T Halligan</a></h5>
-                      <p class="card-text "><a href="#" class="sub-name-link">@cruftyoldsysadmin</a></p>
+                      <h5 class="card-title "><a href="#" id="name" class="name-link"></a></h5>
+                      <p class="card-text "><a href="#" id="subname" class="sub-name-link"></a></p>
                     </div>
-                    <a href="#" class="btn btn-dark btn-follow" >Follow</a>
+                    <a href="#" id="follow" class="btn btn-dark btn-follow" >Follow</a>
                 </div>
                 <div class="status d-flex mt-2 mb-2 p-2 text-uppercase border-light-subtle border-top border-bottom">
                   <div class="pe-3 ps-3 border-light border-end  ">
-                    <h5 class="card-title">18</h5>
-                  <p class="card-text"><a href="#">repos</a></p>
+                    <h5 id="repos" class="card-title"></h5>
+                  <p class="card-text"><a href="#" id="repos-link">repos</a></p>
                   </div>
                   <div class=" pe-3 ps-3 border-light border-end  ">
-                  <h5 class="card-title">9</h5>
-                  <p class="card-text"><a href="#">gists</a></p>
+                  <h5 id="gists" class="card-title"></h5>
+                  <p  class="card-text"><a id="gists-link" href="#">gists</a></p>
                   </div>
                   <div class="ps-3  ">
-                    <h5 class="card-title">9</h5>
-                  <p class="card-text"><a href="#">followers</a></p>
+                    <h5 id="followers"  class="card-title"></h5>
+                  <p class="card-text"><a id="followers-link"  href="#">followers</a></p>
                   </div>
                 </div>
                 <div class="footer p-2 ">
-                  <p class="card-subtitle fw-bold"> <a href="#">Available for hire</a></p>
+                  <p class="card-subtitle fw-bold"> <a id="string" href="#"></a></p>
                 </div>
               </div>
               <div class="github-card card repo-card p-2 mb-3">
@@ -229,6 +230,7 @@
         </div>
         
     </main>
+    <script src="./index.js"></script>
 </body>
 
 </html>
