@@ -44,10 +44,10 @@ height: 67px;
 .github-card a{
 text-decoration: none;
 }
-.name-link{
+.name-link,.repo-name-link{
   color: black;
 }
-.name-link:hover{
+.name-link:hover,.repo-name-link:hover{
   color: black;
   text-decoration: underline;
   transition: all ease-in-out 2s;
@@ -58,6 +58,7 @@ text-decoration: none;
 }
 .sub-name-link:hover{
   color: #4183c4; 
+ 
 }
 .status a, .footer a{
 color: #707070;
@@ -65,8 +66,18 @@ color: #707070;
 .status a:hover{
 color: #4183c4;
 }
+.description a{
+  color: #4183c4;
+}
+.description a:hover{
+  text-decoration: underline;
+}
 .footer a:hover{
 text-decoration: underline;
+}
+.description,.footer{
+  color: #707070;
+  font-size: 12px;
 }
 .btn-follow{
   height: 40px;
