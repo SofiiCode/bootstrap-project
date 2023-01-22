@@ -40,9 +40,13 @@ height: 67px;
   width: 100%;
   max-width: 100%; 
 }
-
+.github-card{
+  max-width: 450px;
+  width: 100%;
+}
 .github-card a{
 text-decoration: none;
+
 }
 .name-link,.repo-name-link{
   color: black;
@@ -58,7 +62,6 @@ text-decoration: none;
 }
 .sub-name-link:hover{
   color: #4183c4; 
- 
 }
 .status a, .footer a{
 color: #707070;
@@ -86,37 +89,25 @@ text-decoration: underline;
 @media (max-width: 479px) {
   .sidebar{
     display: none!important;
-    
-  }
-  .git-card {
-    width:100%;
-  }
-  .git-wrapper{
-    width: 100%;
-    margin: 0 auto;
   }
  .margin-top {
     margin-top: 98px;
   }
-}
-
-@media (max-width: 979px) {
-  .git-card {
-    width:100%;
+  .btn-follow{
+margin: 0 auto;
   }
-  .git-wrapper{
-    width: 65%;
+  .user-name{
     margin: 0 auto;
   }
 }
+
 @media (min-width: 979px) {
   .description{
     max-height: 50%;
   }
 }
-
 @media (min-width: 379px) {
   .margin-top {
     margin-top: 98px;
-  }
+  } 
 }
