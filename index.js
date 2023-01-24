@@ -29,8 +29,6 @@ function displayDataUser (response){
                 <div class="footer p-2 ">
                   <p class="card-subtitle fw-bold"> <a id="string" href="${response.data.html_url}"></a></p>
                 </div>`;
-
-  
   userCardHTML = userCardHTML + `</div>`;
   userCardElement.innerHTML = userCardHTML;
 
@@ -47,9 +45,10 @@ function displayDataUser (response){
 }
 
 function getDataUser() {
-let userName = document.querySelector("#user-name").innerHTML;
-  let apiUrl = `https://api.github.com/users/${userName}`;
-  axios.get(apiUrl).then(displayDataUser);
+    let userNameDiv = document.querySelector("#user-card");
+    let userName = userNameDiv.dataset.user;
+    let apiUrl = `https://api.github.com/users/${userName}`;
+    axios.get(apiUrl).then(displayDataUser);
 }
 getDataUser();
 
@@ -69,8 +68,8 @@ function displayDataRepo(response) {
                 </div>
                 <div class="git-description border-bottom  d-flex mt-2 mb-2 p-2 ">
                   <div class="pe-3 ps-3 fs-6">
-                  <p class="card-text">The unofficial GitHub Cards. Card for your GitHub profile, card for your GitHub repositories.
-                    <a  href="https://lab.lepture.com/github-cards/" >lab.lepture.com/github-cards</a>
+                  <p id="description" class="card-text">${response.data.description}
+                    <a  href="${response.data.html_url}" >${response.data.html_url}</a>
                   </p>
                   </div>
                 </div>
@@ -85,11 +84,23 @@ function displayDataRepo(response) {
                   </div>
                   </div>`;
   userRepoHTML = userRepoHTML + '</div>';
-                  userRepoElement.innerHTML = userRepoHTML
+    userRepoElement.innerHTML = userRepoHTML;
+    
+    if (response.data.description == "null") {
+             let description = document.querySelector('#description') ;
+      description.innerHTML = "No description of the repository";
+    } else if (`${response.data.description} ` == "") {
+      let description = document.querySelector("#description");
+      description.innerHTML = `${response.data.description}`;
+    }
+    
 }
 function getDataRepo() {
-let repoName= document.querySelector('#repo-name').innerHTML
-  let apiUrl = `https://api.github.com/repos/cruftyoldsysadmin/${repoName}`;
-  axios.get(apiUrl).then(displayDataRepo);
+    let userNameDiv = document.querySelector("#repo-card");
+    let userName = userNameDiv.dataset.user;
+    let repoNameDiv= document.querySelector('#repo-card')
+    let repoName = repoNameDiv.dataset.repo;
+    let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
+    axios.get(apiUrl).then(displayDataRepo);
 }
 getDataRepo()
