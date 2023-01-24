@@ -80,7 +80,7 @@ function displayDataRepo(response) {
                     <p class="card-text">forks</p>
                   </div>
                   <div class="ps-2 d-flex ">
-                    <p class="fw-bold m-0 pe-1">1</p>
+                    <p class="fw-bold m-0 pe-1">${response.data.stargazers_count}</p>
                     <p class="card-text">stars</p>
                   </div>
                   </div>`;
