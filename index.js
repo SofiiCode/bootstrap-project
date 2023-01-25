@@ -52,55 +52,79 @@ function getDataUser() {
 }
 getDataUser();
 
-function displayDataRepo(response) {
-  console.log(response);
-  let userRepoElement = document.querySelector("#repo-card");
- 
-  let userRepoHTML = `<div class="header d-flex justify-content-between">`;
-    userRepoHTML =
-      userRepoHTML +
-      `<img src="${response.data.owner.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
-                 <div class="user-name ms-1">
-                      <h5 class="card-title "><a href="${response.data.html_url}" class="repo-name-link">${response.data.name}</a></h5>
-                      <p class="card-text ">Forked by: <a href="${response.data.owner.html_url}" class="sub-name-link">@${response.data.owner.login}</a></p>
-                </div>
-                    <a href="${response.data.html_url}" class="btn btn-dark btn-follow" >Star</a>
-                </div>
-                <div class="git-description border-bottom  d-flex mt-2 mb-2 p-2 ">
-                  <div class="pe-3 ps-2 fs-6">
-                  <p id="description" class="card-text">${response.data.description}
-                    <a  href="${response.data.html_url}" >${response.data.html_url}</a>
-                  </p>
-                  </div>
-                </div>
-                <div class="footer d-flex text-uppercase">
-                  <div class="ps-2  d-flex ">
-                    <p class="fw-bold m-0 pe-1">${response.data.forks}</p>
-                    <p class="card-text">forks</p>
-                  </div>
-                  <div class="ps-2 d-flex ">
-                    <p class="fw-bold m-0 pe-1">${response.data.stargazers_count}</p>
-                    <p class="card-text">stars</p>
-                  </div>
-                  </div>`;
-  userRepoHTML = userRepoHTML + '</div>';
-    userRepoElement.innerHTML = userRepoHTML;
 
-    if (response.data.description == "null") {
-             let description = document.querySelector('#description') ;
-      description.innerHTML = "No description of the repository";
-    } else if (`${response.data.description} ` == "") {
-      let description = document.querySelector("#description");
-      description.innerHTML = `${response.data.description}`;
-    }
-    
-}
-function getDataRepo() {
-    let userNameDiv = document.querySelector("#repo-card");
-    let userName = userNameDiv.dataset.user;
-    let repoNameDiv= document.querySelector('#repo-card')
-    let repoName = repoNameDiv.dataset.repo;
-    let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
-    axios.get(apiUrl).then(displayDataRepo);
-}
-getDataRepo()
+
+ const repoNameDiv = document.querySelectorAll(".repo-card");
+ for (i = 0; i < repoNameDiv.length; i++) {
+   let repoinfo = repoNameDiv[i];
+   
+   getDataRepo(repoinfo);
+   function getDataRepo(repoinfo, ) {
+     
+     // let repoNameDiv= document.querySelectorAll('.repo-card')
+     //   let userNameDiv = document.querySelectorAll(".repo-card");
+   
+     let repoName = repoinfo.dataset.repo;
+     let userName = repoinfo.dataset.user;
+     console.log(repoName);
+     let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
+     axios.get(apiUrl).then(displayDataRepo);
+   }
+   function displayDataRepo(response) {
+   let userRepoElement = repoinfo;
+   console.log(userRepoElement);
+    //  let userRepoElement = document.querySelector(".repo-card");
+     // console.log(userRepoElements.length)
+   
+     console.log(response);
+   //  for (i = 0; i < userRepoElements.length; i++) {
+     //  let userRepoElement= userRepoElements;
+       let userRepoHTML = `<div class="header d-flex justify-content-between">`;
+      userRepoHTML =
+        userRepoHTML +
+        `<img src="${response.data.owner.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
+                    <div class="user-name ms-1">
+                         <h5 class="card-title "><a href="${response.data.html_url}" class="repo-name-link">${response.data.name}</a></h5>
+                         <p class="card-text ">Forked by: <a href="${response.data.owner.html_url}" class="sub-name-link">@${response.data.owner.login}</a></p>
+                   </div>
+                       <a href="${response.data.html_url}" class="btn btn-dark btn-follow" >Star</a>
+                   </div>
+                   <div class="git-description border-bottom  d-flex mt-2 mb-2 p-2 ">
+                     <div class="pe-3 ps-2 fs-6">
+                     <p id="description" class="card-text">${response.data.description}
+                       <a  href="${response.data.html_url}" >${response.data.html_url}</a>
+                     </p>
+                     </div>
+                   </div>
+                   <div class="footer d-flex text-uppercase">
+                     <div class="ps-2  d-flex ">
+                       <p class="fw-bold m-0 pe-1">${response.data.forks}</p>
+                       <p class="card-text">forks</p>
+                     </div>
+                     <div class="ps-2 d-flex ">
+                       <p class="fw-bold m-0 pe-1">${response.data.stargazers_count}</p>
+                       <p class="card-text">stars</p>
+                     </div>
+                     </div>`;
+     userRepoHTML = userRepoHTML + "</div>";
+     userRepoElement.innerHTML = userRepoHTML;
+   
+     if (response.data.description == "null") {
+       let description = document.querySelector("#description");
+       description.innerHTML = "No description of the repository";
+     } else if (`${response.data.description} ` == "") {
+       let description = document.querySelector("#description");
+       description.innerHTML = `${response.data.description}`;
+     }
+         
+     }
+ }
+
+
+  
+
+
+
+
+ 
+ 
