@@ -46,6 +46,12 @@ height: 67px;
 .github-card a{
 text-decoration: none;
 }
+.repo-card{
+  flex-direction: column;
+}
+.git-description{
+  flex: 1 1 auto;
+}
 .name-link,.repo-name-link{
   color: black;
 }

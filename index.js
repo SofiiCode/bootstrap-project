@@ -60,14 +60,14 @@ function displayDataRepo(response) {
     userRepoHTML =
       userRepoHTML +
       `<img src="${response.data.owner.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
-                    <div class="user-name ms-1">
+                 <div class="user-name ms-1">
                       <h5 class="card-title "><a href="${response.data.html_url}" class="repo-name-link">${response.data.name}</a></h5>
                       <p class="card-text ">Forked by: <a href="${response.data.owner.html_url}" class="sub-name-link">@${response.data.owner.login}</a></p>
-                    </div>
+                </div>
                     <a href="${response.data.html_url}" class="btn btn-dark btn-follow" >Star</a>
                 </div>
                 <div class="git-description border-bottom  d-flex mt-2 mb-2 p-2 ">
-                  <div class="pe-3 ps-3 fs-6">
+                  <div class="pe-3 ps-2 fs-6">
                   <p id="description" class="card-text">${response.data.description}
                     <a  href="${response.data.html_url}" >${response.data.html_url}</a>
                   </p>
@@ -85,7 +85,7 @@ function displayDataRepo(response) {
                   </div>`;
   userRepoHTML = userRepoHTML + '</div>';
     userRepoElement.innerHTML = userRepoHTML;
-    
+
     if (response.data.description == "null") {
              let description = document.querySelector('#description') ;
       description.innerHTML = "No description of the repository";
