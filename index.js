@@ -55,31 +55,13 @@ getDataUser();
 
 
  const repoNameDiv = document.querySelectorAll(".repo-card");
+
  for (i = 0; i < repoNameDiv.length; i++) {
    let repoinfo = repoNameDiv[i];
    
-   getDataRepo(repoinfo);
-   function getDataRepo(repoinfo, ) {
-     
-     // let repoNameDiv= document.querySelectorAll('.repo-card')
-     //   let userNameDiv = document.querySelectorAll(".repo-card");
-   
-     let repoName = repoinfo.dataset.repo;
-     let userName = repoinfo.dataset.user;
-     console.log(repoName);
-     let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
-     axios.get(apiUrl).then(displayDataRepo);
-   }
    function displayDataRepo(response) {
-   let userRepoElement = repoinfo;
-   console.log(userRepoElement);
-    //  let userRepoElement = document.querySelector(".repo-card");
-     // console.log(userRepoElements.length)
-   
-     console.log(response);
-   //  for (i = 0; i < userRepoElements.length; i++) {
-     //  let userRepoElement= userRepoElements;
-       let userRepoHTML = `<div class="header d-flex justify-content-between">`;
+     let userRepoElement = repoinfo;
+      let userRepoHTML = `<div class="header d-flex justify-content-between">`;
       userRepoHTML =
         userRepoHTML +
         `<img src="${response.data.owner.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
@@ -106,18 +88,27 @@ getDataUser();
                        <p class="card-text">stars</p>
                      </div>
                      </div>`;
-     userRepoHTML = userRepoHTML + "</div>";
-     userRepoElement.innerHTML = userRepoHTML;
-   
-     if (response.data.description == "null") {
-       let description = document.querySelector("#description");
-       description.innerHTML = "No description of the repository";
-     } else if (`${response.data.description} ` == "") {
-       let description = document.querySelector("#description");
-       description.innerHTML = `${response.data.description}`;
-     }
-         
-     }
+      userRepoHTML = userRepoHTML + "</div>";
+      userRepoElement.innerHTML = userRepoHTML;
+    
+      if (response.data.description == "null") {
+        let description = document.querySelector("#description");
+        description.innerHTML = "No description of the repository";
+      } else if (`${response.data.description} ` == "") {
+        let description = document.querySelector("#description");
+        description.innerHTML = `${response.data.description}`;
+      }
+          
+      }
+    function getDataRepo(repoinfo) {
+      let repoName = repoinfo.dataset.repo;
+      let userName = repoinfo.dataset.user;
+      console.log(repoName);
+      let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
+      axios.get(apiUrl).then(displayDataRepo);
+    }
+
+    getDataRepo(repoinfo);
  }
 
 
