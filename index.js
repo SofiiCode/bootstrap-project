@@ -1,6 +1,7 @@
 
 
 function displayDataUser (response){
+ 
   let userCardElement = document.querySelector("#user-card");
   let userCardHTML = `<div class="header d-flex flex-wrap justify-content-between">`;
   userCardHTML =
@@ -33,14 +34,15 @@ function displayDataUser (response){
   userCardElement.innerHTML = userCardHTML;
 
     if (`${response.data.hireable}` == "true") {
+      
         let footer = document.querySelector('#string') 
       footer.innerHTML = "Available for hire";
     } else if (`${response.data.hireable} ` == "false") {
         let footer = document.querySelector("#string"); 
       footer.innerHTML = "Not available for hire";
-    } else {
-        let footer = document.querySelector("#string"); 
-      footer.innerHTML = "else";
+    } else{
+      let footer = document.querySelector("#string");
+      footer.innerHTML = "You can ask about hiring";
     }
 }
 
@@ -55,11 +57,12 @@ getDataUser();
 
 
  const repoNameDiv = document.querySelectorAll(".repo-card");
-
+  
  for (i = 0; i < repoNameDiv.length; i++) {
    let repoinfo = repoNameDiv[i];
    
    function displayDataRepo(response) {
+    console.log(response);
      let userRepoElement = repoinfo;
       let userRepoHTML = `<div class="header d-flex justify-content-between">`;
       userRepoHTML =
@@ -74,8 +77,9 @@ getDataUser();
                    <div class="git-description border-bottom  d-flex mt-2 mb-2 p-2 ">
                      <div class="pe-3 ps-2 fs-6">
                      <p id="description" class="card-text">${response.data.description}
-                       <a  href="${response.data.html_url}" >${response.data.html_url}</a>
+                       
                      </p>
+                     <a  href="${response.data.html_url}" >${response.data.html_url}</a>
                      </div>
                    </div>
                    <div class="footer d-flex text-uppercase">
@@ -91,15 +95,9 @@ getDataUser();
       userRepoHTML = userRepoHTML + "</div>";
       userRepoElement.innerHTML = userRepoHTML;
     
-      if (response.data.description == "null") {
-        let description = document.querySelector("#description");
-        description.innerHTML = "No description of the repository";
-      } else if (`${response.data.description} ` == "") {
-        let description = document.querySelector("#description");
-        description.innerHTML = `${response.data.description}`;
-      }
+     
           
-      }
+    }
     function getDataRepo(repoinfo) {
       let repoName = repoinfo.dataset.repo;
       let userName = repoinfo.dataset.user;
