@@ -75,11 +75,11 @@ getDataUser();
                        <a href="${response.data.html_url}" class="btn btn-dark btn-follow" >Star</a>
                    </div>
                    <div class="git-description border-bottom  d-flex mt-2 mb-2 p-2 ">
-                     <div class="pe-3 ps-2 fs-6">
-                     <p id="description" class="card-text">${response.data.description}
+                     <div id="description" class=" repo-description pe-3 ps-2 fs-6">
+                       <p  class="  card-text">${response.data.description}
                        
-                     </p>
-                     <a  href="${response.data.html_url}" >${response.data.html_url}</a>
+                        <a  href="${response.data.html_url}" >${response.data.html_url}</a>
+                       </p>
                      </div>
                    </div>
                    <div class="footer d-flex text-uppercase">
@@ -95,7 +95,18 @@ getDataUser();
       userRepoHTML = userRepoHTML + "</div>";
       userRepoElement.innerHTML = userRepoHTML;
     
-     
+
+        if (`${response.data.description}` === "null") {
+          let description = document.querySelectorAll(".repo-description");
+          let desc = description.lastChild;
+          console.log(description);
+          console.log(desc)
+          desc.innerHTML = "Available for hire";
+        } else {
+         let description = document.querySelectorAll(".repo-description");
+         let desc = description.lastChild;
+         desc.innerHTML = `${response.data.description}`;
+        }
           
     }
     function getDataRepo(repoinfo) {
