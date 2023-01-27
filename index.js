@@ -13,7 +13,7 @@ function displayDataUser (response){
                     </div>
                     <a href="${response.data.html_url}"  class="btn btn-dark btn-follow" >Follow</a>
                 </div>
-                <div class="status d-flex mt-2 mb-2 p-2 text-uppercase border-light-subtle border-top border-bottom">
+                <div class="status d-flex mt-4  mb-2 p-2 text-uppercase border-light-subtle border-top border-bottom">
                   <div class="pe-3 ps-3 border-light border-end  ">
                     <h5 id="repos" class="card-title">${response.data.public_repos}</h5>
                   <p class="card-text"><a href="https://github.com/${response.data.login}?tab=repositories" >repos</a></p>
@@ -27,22 +27,25 @@ function displayDataUser (response){
                   <p class="card-text"><a   href="https://github.com/${response.data.login}?tab=followers">followers</a></p>
                   </div>
                 </div>
-                <div class="footer p-2 ">
-                  <p class="card-subtitle fw-bold"> <a id="string" href="${response.data.html_url}"></a></p>
+                <div class="footer  p-2 ">
+                  <p class="card-subtitle pt-2 fw-bold"> <a id="string" href="${response.data.html_url}"></a></p>
                 </div>`;
   userCardHTML = userCardHTML + `</div>`;
   userCardElement.innerHTML = userCardHTML;
 
     if (`${response.data.hireable}` == "true") {
       
-        let footer = document.querySelector('#string') 
+      let footer = document.querySelector('#string') 
+      footer.classList.add("green");
       footer.innerHTML = "Available for hire";
     } else if (`${response.data.hireable} ` == "false") {
         let footer = document.querySelector("#string"); 
+        footer.classList.add("red");
       footer.innerHTML = "Not available for hire";
     } else{
       let footer = document.querySelector("#string");
       footer.innerHTML = "You can ask about hiring";
+       footer.classList.add("grey");
     }
 }
 
@@ -62,7 +65,7 @@ getDataUser();
    let repoinfo = repoNameDiv[i];
    
    function displayDataRepo(response) {
-    console.log(response);
+    
      let userRepoElement = repoinfo;
       let userRepoHTML = `<div class="header d-flex justify-content-between">`;
       userRepoHTML =
@@ -96,17 +99,21 @@ getDataUser();
       userRepoElement.innerHTML = userRepoHTML;
     
 
-        if (`${response.data.description}` === "null") {
-          let description = document.querySelectorAll(".repo-description");
-          let desc = description.lastChild;
-          console.log(description);
-          console.log(desc)
-          desc.innerHTML = "Available for hire";
-        } else {
-         let description = document.querySelectorAll(".repo-description");
-         let desc = description.lastChild;
-         desc.innerHTML = `${response.data.description}`;
-        }
+        // if (`${response.data.description}` === "null") {
+        //   let description = document.querySelectorAll(".repo-description");
+        //   let desc = description.lastChild;
+        //   console.log(description);
+        //   console.log(desc)
+          
+        //   desc.innerHTML = "Available for hire";
+          
+        // } else {
+        //  let description = document.querySelectorAll(".repo-description");
+        //  let desc = description.lastChild;
+         
+        //  desc.innerHTML = `${response.data.description}`;
+         
+        // }
           
     }
     function getDataRepo(repoinfo) {

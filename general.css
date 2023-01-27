@@ -49,12 +49,19 @@ height: 67px;
   margin: 0 auto;
 }
 .github-card{
-  max-width: 450px;
+  max-width: 650px;
   width: 100%;
+  margin: 0 auto;
 }
 .github-card a{
 text-decoration: none;
+}
 
+.social-links{
+  margin: 0 auto;
+}
+.description-container{
+  margin: 0 auto;
 }
 .description{
   margin: 0 auto;
@@ -81,7 +88,7 @@ text-decoration: none;
 .sub-name-link:hover{
   color: #4183c4; 
 }
-.status a, .footer a{
+.status a{
 color: #707070;
 }
 .status a:hover{
@@ -93,19 +100,41 @@ color: #4183c4;
 .git-description a:hover{
   text-decoration: underline;
 }
+
 .footer a:hover{
+  color: #707070;
 text-decoration: underline;
 }
 .git-description,.footer{
   color: #707070;
   font-size: 12px;
+ 
 }
+
 .btn-follow{
   height: 40px;
 }
 .expiration-card{
   padding-left: 12px;
   padding-right: 12px;
+}
+.green{
+  color:rgb(22, 101, 52);
+  background-color: #dcfce7;
+  padding: 8px;
+  border-radius: 5px;
+}
+.red{
+  color:#651616;
+  background-color: #fcdcdc;
+  padding: 8px;
+  border-radius: 5px;
+}
+.grey{
+  color: #414141;
+  background-color: #a0a0a0;
+  padding: 8px;
+  border-radius: 5px;
 }
 @media (max-width: 479px) {
   .sidebar{
