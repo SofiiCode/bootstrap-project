@@ -68,7 +68,7 @@ getDataUser();
    function displayDataRepo(response) {
      let userRepoElement = repoinfo;
 
-     let userRepoHTML = `<div class="header d-flex justify-content-between">`;
+     let userRepoHTML = `<div class="repo-header d-flex justify-content-between">`;
      userRepoHTML =
        userRepoHTML +
        `<img src="${response.data.owner.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
@@ -78,11 +78,11 @@ getDataUser();
                    </div>
                        <a href="${response.data.html_url}" class="btn btn-dark btn-follow" >Star</a>
                    </div>
-                   <div class="git-description border-bottom  d-flex mt-2 mb-2 p-2 ">
+                   <div class="git-description border-bottom   mt-2 mb-2 p-2 ">
                      <div id="description" class=" repo-description pe-3 ps-2 fs-6">
                        <p  class="  card-text">${response.data.description}
                        
-                        <a  href="${response.data.html_url}" >${response.data.html_url}</a>
+                        <a class="overflow-x-hidden"  href="${response.data.html_url}" >${response.data.html_url}</a>
                        </p>
                      </div>
                    </div>

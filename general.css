@@ -48,9 +48,8 @@ height: 67px;
 
 
 .github-card{
-  max-width: 550px;
-  width: 100%;
-  
+  max-width: 450px;
+  width: 100%; 
 }
 .github-card a{
 text-decoration: none;
@@ -65,7 +64,10 @@ text-decoration: none;
 
 .repo-card{
   flex-direction: column;
+  border: none;
+  background-color: #EFF2F6;
 }
+
 .git-description{
   flex: 1 1 auto;
 }
@@ -153,6 +155,10 @@ text-decoration: underline;
     justify-content: center;
     align-items: center;
   }
+  .repo-header{
+  flex-wrap: wrap;
+ 
+}
 }
 @media (min-width: 979px) {
   
