@@ -44,7 +44,7 @@ height: 67px;
 }
 
 .repo-wrapper{
-  background: var(--bs-body-color);
+  background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity));
   color: white;
  
 }
