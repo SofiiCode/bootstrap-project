@@ -3,7 +3,7 @@
 function displayDataUser (response){
  
   let userCardElement = document.querySelector("#user-card");
-  let userCardHTML = `<div class="header d-flex flex-wrap justify-content-between">`;
+  let userCardHTML = `<div class="header user-card-header d-flex flex-wrap justify-content-between">`;
   userCardHTML =
     userCardHTML +
     `<img src="${response.data.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">

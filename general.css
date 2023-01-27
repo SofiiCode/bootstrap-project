@@ -46,7 +46,7 @@ height: 67px;
 .repo-wrapper{
   background: var(--bs-body-color);
   color: white;
-  margin: 0 auto;
+ 
 }
 .github-card{
   max-width: 650px;
@@ -118,6 +118,9 @@ text-decoration: underline;
   padding-left: 12px;
   padding-right: 12px;
 }
+.expiration-container{
+  margin: 0 auto;
+}
 .green{
   color:rgb(22, 101, 52);
   background-color: #dcfce7;
@@ -149,11 +152,20 @@ text-decoration: underline;
   .user-name{
     margin: 0 auto;
   }
+  .user-card-header{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 @media (min-width: 979px) {
   .description{
     max-width: 80%;
   }
+  .expiration-container{
+ 
+  margin: 0 auto;
+}
   /* .description{
     max-height: 50%;
   } */
