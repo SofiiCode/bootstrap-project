@@ -26,6 +26,9 @@ td {
   --bs-btn-active-bg: #{shade-color(238636, 20%)};
   --bs-btn-active-border-color: #{shade-color(238636, 20%)};
 }
+.navbar{
+  overflow-x: auto;
+}
 .b-example-divider {
   height: 3rem;
   background-color: rgba(0, 0, 0, .1);
@@ -43,15 +46,11 @@ height: 67px;
   max-width: 100%; 
 }
 
-.repo-wrapper{
-  background-color: #212529;
-  color: white;
- 
-}
+
 .github-card{
-  max-width: 650px;
+  max-width: 550px;
   width: 100%;
-  margin: 0 auto;
+  
 }
 .github-card a{
 text-decoration: none;
@@ -63,10 +62,7 @@ text-decoration: none;
 .description-container{
   margin: 0 auto;
 }
-.description{
-  margin: 0 auto;
-  
-}
+
 .repo-card{
   flex-direction: column;
 }
@@ -159,11 +155,8 @@ text-decoration: underline;
   }
 }
 @media (min-width: 979px) {
-  .description{
-    max-width: 80%;
-  }
+  
   .expiration-container{
- 
   margin: 0 auto;
 }
   /* .description{

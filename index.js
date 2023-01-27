@@ -60,17 +60,18 @@ getDataUser();
 
 
  const repoNameDiv = document.querySelectorAll(".repo-card");
+ 
   
  for (i = 0; i < repoNameDiv.length; i++) {
-   let repoinfo = repoNameDiv[i];
-   
+   const repoinfo = repoNameDiv[i];
+
    function displayDataRepo(response) {
-    
      let userRepoElement = repoinfo;
-      let userRepoHTML = `<div class="header d-flex justify-content-between">`;
-      userRepoHTML =
-        userRepoHTML +
-        `<img src="${response.data.owner.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
+
+     let userRepoHTML = `<div class="header d-flex justify-content-between">`;
+     userRepoHTML =
+       userRepoHTML +
+       `<img src="${response.data.owner.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
                     <div class="user-name ms-1">
                          <h5 class="card-title "><a href="${response.data.html_url}" class="repo-name-link">${response.data.name}</a></h5>
                          <p class="card-text ">Forked by: <a href="${response.data.owner.html_url}" class="sub-name-link">@${response.data.owner.login}</a></p>
@@ -95,35 +96,40 @@ getDataUser();
                        <p class="card-text">stars</p>
                      </div>
                      </div>`;
-      userRepoHTML = userRepoHTML + "</div>";
-      userRepoElement.innerHTML = userRepoHTML;
-    
+     userRepoHTML = userRepoHTML + "</div>";
+     userRepoElement.innerHTML = userRepoHTML;
 
-        // if (`${response.data.description}` === "null") {
-        //   let description = document.querySelectorAll(".repo-description");
-        //   let desc = description.lastChild;
-        //   console.log(description);
-        //   console.log(desc)
-          
-        //   desc.innerHTML = "Available for hire";
-          
-        // } else {
-        //  let description = document.querySelectorAll(".repo-description");
-        //  let desc = description.lastChild;
-         
-        //  desc.innerHTML = `${response.data.description}`;
-         
-        // }
-          
-    }
+     // if (`${response.data.description}` === "null") {
+     //   let description = document.querySelectorAll(".repo-description");
+     //   let desc = description.lastChild;
+     //   console.log(description);
+     //   console.log(desc)
+
+     //   desc.innerHTML = "Available for hire";
+
+     // } else {
+     //  let description = document.querySelectorAll(".repo-description");
+     //  let desc = description.lastChild;
+
+     //  desc.innerHTML = `${response.data.description}`;
+
+     // }
+   }
+ 
+
     function getDataRepo(repoinfo) {
       let repoName = repoinfo.dataset.repo;
       let userName = repoinfo.dataset.user;
-      console.log(repoName);
       let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
       axios.get(apiUrl).then(displayDataRepo);
-    }
-
+    } 
+      // let index = i + 1;
+      // let id = `#repo-card-${index}`;
+      // let repoCardDiv = document.getElementById(`${id}`);
+      // console.log(repoCardDiv);
+    
+      // console.log(index)
+   
     getDataRepo(repoinfo);
  }
 
