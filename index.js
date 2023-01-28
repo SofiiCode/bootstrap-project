@@ -63,7 +63,7 @@ function displayDataRepo(response) {
   insertedElement.classList.add("repo-card");
   insertedElement.classList.add("p-2");
   insertedElement.classList.add("mb-3");
-  insertedElement.classList.add("overflow-x-hidden");
+  insertedElement.classList.add("github-card");
   let userRepoHTML = `<div class="repo-header d-flex justify-content-between">`;
   userRepoHTML =
     userRepoHTML +
@@ -111,17 +111,14 @@ function displayDataRepo(response) {
 
   // }
 }
-
+ function getDataRepo(repoinfo) {
+   let repoName = repoinfo.dataset.repo;
+   let userName = repoinfo.dataset.user;
+   let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
+   axios.get(apiUrl).then(displayDataRepo);
+ }
 for (i = 0; i < repoNameDiv.childElementCount; ++i) {
   let repoinfoList = repoNameDiv.children;
   let repoinfo = repoinfoList[i];
-
-  function getDataRepo(repoinfo) {
-    let repoName = repoinfo.dataset.repo;
-    let userName = repoinfo.dataset.user;
-    let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
-    axios.get(apiUrl).then(displayDataRepo);
-  }
-
   getDataRepo(repoinfo);
 }
