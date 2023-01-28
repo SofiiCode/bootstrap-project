@@ -1,7 +1,4 @@
-
-
-function displayDataUser (response){
- 
+function displayDataUser(response) {
   let userCardElement = document.querySelector("#user-card");
   let userCardHTML = `<div class="header user-card-header d-flex flex-wrap justify-content-between">`;
   userCardHTML =
@@ -33,45 +30,44 @@ function displayDataUser (response){
   userCardHTML = userCardHTML + `</div>`;
   userCardElement.innerHTML = userCardHTML;
 
-    if (`${response.data.hireable}` == "true") {
-      
-      let footer = document.querySelector('#string') 
-      footer.classList.add("green");
-      footer.innerHTML = "Available for hire";
-    } else if (`${response.data.hireable} ` == "false") {
-        let footer = document.querySelector("#string"); 
-        footer.classList.add("red");
-      footer.innerHTML = "Not available for hire";
-    } else{
-      let footer = document.querySelector("#string");
-      footer.innerHTML = "You can ask about hiring";
-       footer.classList.add("grey");
-    }
+  if (`${response.data.hireable}` == "true") {
+    let footer = document.querySelector("#string");
+    footer.classList.add("green");
+    footer.innerHTML = "Available for hire";
+  } else if (`${response.data.hireable} ` == "false") {
+    let footer = document.querySelector("#string");
+    footer.classList.add("red");
+    footer.innerHTML = "Not available for hire";
+  } else {
+    let footer = document.querySelector("#string");
+    footer.innerHTML = "You can ask about hiring";
+    footer.classList.add("grey");
+  }
 }
 
 function getDataUser() {
-    let userNameDiv = document.querySelector("#user-card");
-    let userName = userNameDiv.dataset.user;
-    let apiUrl = `https://api.github.com/users/${userName}`;
-    axios.get(apiUrl).then(displayDataUser);
+  let userNameDiv = document.querySelector("#user-card");
+  let userName = userNameDiv.dataset.user;
+  let apiUrl = `https://api.github.com/users/${userName}`;
+  axios.get(apiUrl).then(displayDataUser);
 }
 getDataUser();
 
+const repoNameDiv = document.querySelector("#repo-container");
 
+function displayDataRepo(response) {
+  let userRepoElement = document.createElement("div");
+  let lastDiv = repoNameDiv.lastChild;
 
- const repoNameDiv = document.querySelectorAll(".repo-card");
- 
-  
- for (i = 0; i < repoNameDiv.length; i++) {
-   const repoinfo = repoNameDiv[i];
-
-   function displayDataRepo(response) {
-     let userRepoElement = repoinfo;
-
-     let userRepoHTML = `<div class="repo-header d-flex justify-content-between">`;
-     userRepoHTML =
-       userRepoHTML +
-       `<img src="${response.data.owner.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
+  let insertedElement = repoNameDiv.insertBefore(userRepoElement, lastDiv);
+  insertedElement.classList.add("repo-card");
+  insertedElement.classList.add("p-2");
+  insertedElement.classList.add("mb-3");
+  insertedElement.classList.add("overflow-x-hidden");
+  let userRepoHTML = `<div class="repo-header d-flex justify-content-between">`;
+  userRepoHTML =
+    userRepoHTML +
+    `<img src="${response.data.owner.avatar_url}" class="rounded-circle img-start"  width="80" height="80"alt="user-photo">
                     <div class="user-name ms-1">
                          <h5 class="card-title "><a href="${response.data.html_url}" class="repo-name-link">${response.data.name}</a></h5>
                          <p class="card-text ">Forked by: <a href="${response.data.owner.html_url}" class="sub-name-link">@${response.data.owner.login}</a></p>
@@ -96,48 +92,36 @@ getDataUser();
                        <p class="card-text">stars</p>
                      </div>
                      </div>`;
-     userRepoHTML = userRepoHTML + "</div>";
-     userRepoElement.innerHTML = userRepoHTML;
+  userRepoHTML = userRepoHTML + "</div>";
+  insertedElement.innerHTML = userRepoHTML;
 
-     // if (`${response.data.description}` === "null") {
-     //   let description = document.querySelectorAll(".repo-description");
-     //   let desc = description.lastChild;
-     //   console.log(description);
-     //   console.log(desc)
+  // if (`${response.data.description}` === "null") {
+  //   let description = document.querySelectorAll(".repo-description");
+  //   let desc = description.lastChild;
+  //   console.log(description);
+  //   console.log(desc)
 
-     //   desc.innerHTML = "Available for hire";
+  //   desc.innerHTML = "Available for hire";
 
-     // } else {
-     //  let description = document.querySelectorAll(".repo-description");
-     //  let desc = description.lastChild;
+  // } else {
+  //  let description = document.querySelectorAll(".repo-description");
+  //  let desc = description.lastChild;
 
-     //  desc.innerHTML = `${response.data.description}`;
+  //  desc.innerHTML = `${response.data.description}`;
 
-     // }
-   }
- 
+  // }
+}
 
-    function getDataRepo(repoinfo) {
-      let repoName = repoinfo.dataset.repo;
-      let userName = repoinfo.dataset.user;
-      let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
-      axios.get(apiUrl).then(displayDataRepo);
-    } 
-      // let index = i + 1;
-      // let id = `#repo-card-${index}`;
-      // let repoCardDiv = document.getElementById(`${id}`);
-      // console.log(repoCardDiv);
-    
-      // console.log(index)
-   
-    getDataRepo(repoinfo);
- }
+for (i = 0; i < repoNameDiv.childElementCount; ++i) {
+  let repoinfoList = repoNameDiv.children;
+  let repoinfo = repoinfoList[i];
 
+  function getDataRepo(repoinfo) {
+    let repoName = repoinfo.dataset.repo;
+    let userName = repoinfo.dataset.user;
+    let apiUrl = `https://api.github.com/repos/${userName}/${repoName}`;
+    axios.get(apiUrl).then(displayDataRepo);
+  }
 
-  
-
-
-
-
- 
- 
+  getDataRepo(repoinfo);
+}
