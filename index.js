@@ -75,11 +75,11 @@ function displayDataRepo(response) {
                        <a href="${response.data.html_url}" class="btn btn-dark btn-follow" >Star</a>
                    </div>
                    <div class="git-description border-bottom   mt-2 mb-2 p-2 ">
-                     <div id="description" class=" repo-description pe-3 ps-2 fs-6">
-                       <p  class="  card-text">${response.data.description}
+                     <div id="description" class="  pe-3 ps-2 fs-6">
+                       <p  class=" repo-description card-text">${response.data.description}
                        
-                        <a class="overflow-x-hidden"  href="${response.data.html_url}" >${response.data.html_url}</a>
                        </p>
+                       <a class="overflow-x-hidden"  href="${response.data.html_url}" >${response.data.html_url}</a>
                      </div>
                    </div>
                    <div class="footer d-flex text-uppercase">
@@ -95,21 +95,14 @@ function displayDataRepo(response) {
   userRepoHTML = userRepoHTML + "</div>";
   insertedElement.innerHTML = userRepoHTML;
 
-  // if (`${response.data.description}` === "null") {
-  //   let description = document.querySelectorAll(".repo-description");
-  //   let desc = description.lastChild;
-  //   console.log(description);
-  //   console.log(desc)
 
-  //   desc.innerHTML = "Available for hire";
-
-  // } else {
-  //  let description = document.querySelectorAll(".repo-description");
-  //  let desc = description.lastChild;
-
-  //  desc.innerHTML = `${response.data.description}`;
-
-  // }
+  if (`${response.data.description}` === "null") {
+    let description = document.querySelectorAll(".repo-description");
+    let desc = description[description.length-1];
+    desc.innerHTML=`<p> </p>`;
+  } else {
+   
+  }
 }
  function getDataRepo(repoinfo) {
    let repoName = repoinfo.dataset.repo;
